@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.proj_vr_axe.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\CubeMD\\Desktop\\VR-Axe\\Proj_VR_Axe\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Proj_VR_Axe [Testing]"
+        }
+      }
+    }
+  ]
+}
