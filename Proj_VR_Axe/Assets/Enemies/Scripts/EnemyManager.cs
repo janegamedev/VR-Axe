@@ -21,15 +21,15 @@ public class EnemyManager : MonoBehaviour
     {
         EnemyBehaviour enemy = Instantiate(enemyPrefab, spot.position, Quaternion.identity).GetComponent<EnemyBehaviour>();
         enemy.spot = spot;
-        enemy.onEnemyDeath.AddListener(OnEnemyDeath);
+        enemy.onEnemyDeath.AddListener(EnemyDeath);
     }
 
-    private void OnEnemyDeath(Transform spot)
+    private void EnemyDeath(Transform spot)
     {
-        StartCoroutine(RespawnEnemy(spot));
+        StartCoroutine(SpawnEnemyWithDelay(spot));
     }
 
-    private IEnumerator RespawnEnemy(Transform spot)
+    private IEnumerator SpawnEnemyWithDelay(Transform spot)
     {
         yield return new WaitForSeconds(timeForRespawn);
         
