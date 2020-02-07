@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.proj_vr_axe_nonurp.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "D:\\GitHub\\VR-Axe\\Proj_VR_Axe_NonURP\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Proj_VR_Axe_NonURP [Testing]"
+        }
+      }
+    }
+  ]
+}
