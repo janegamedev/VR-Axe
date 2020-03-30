@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
 {
@@ -10,7 +11,7 @@ public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
     public Events.EventEnemyDeath onEnemyDeath;
     private NavMeshAgent agent;
 
-    public Transform tempEndLocation;
+    public GameObject tempEndLocation;
 
     private void Awake()
     {
@@ -19,16 +20,7 @@ public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
 
     private void Start()
     {
-//        NavMeshHit closestHit;
-//        if( NavMesh.SamplePosition(  transform.position, out closestHit, 500, 1 ) ){
-//            transform.position = closestHit.position;
-//            //go.AddComponent<NavMeshAgent>();
-//            //TODO
-//        }
-//        else{
-//            Debug.Log("...");
-//        }
-        Init(tempEndLocation.position);
+        Init(tempEndLocation.transform.position);
     }
 
     public void Init(Vector3 position)
@@ -50,21 +42,32 @@ public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
 
     private void Update()
     {
-//        if (!agent.isOnNavMesh)
-//        {
-//            agent.enabled = false;
-//            agent.enabled = true;
-//            Init(tempEndLocation.position);
-//        }
+        if (IsAtDestination())
+        {
+            DoDamage();
+        }
+    }
 
-
-        
+    public void DoDamage()
+    {
+        tempEndLocation.GetComponent<IReceiveDamage>().GetHit();
+        Destroy(gameObject);
     }
 
     public void GetHit()
     {
         Destroy(gameObject);
         onEnemyDeath?.Invoke(spot);
+    }
+    
+    private bool IsAtDestination()
+    {
+        if (Vector3.Distance(transform.position, tempEndLocation.transform.position) < Random.Range(1, 3))
+            return true;
+        else
+        {
+            return false;
+        }
     }
 }
 

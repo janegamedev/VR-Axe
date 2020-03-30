@@ -5705,7 +5705,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tempEndLocation
       value: 
-      objectReference: {fileID: 1629077883}
+      objectReference: {fileID: 1629077882}
     - target: {fileID: 6548737632529396227, guid: 7a45aa8bf53aa75438c28aa6cdab3e19,
         type: 3}
       propertyPath: m_Name
@@ -12042,7 +12042,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tempEndLocation
       value: 
-      objectReference: {fileID: 1629077883}
+      objectReference: {fileID: 1629077882}
     - target: {fileID: 6548737632529396227, guid: 7a45aa8bf53aa75438c28aa6cdab3e19,
         type: 3}
       propertyPath: m_Name
@@ -15908,6 +15908,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1629077883}
+  - component: {fileID: 1629077884}
   m_Layer: 0
   m_Name: AgentObjective
   m_TagString: Untagged
@@ -15929,6 +15930,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1629077884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629077882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5adc321085d5e23439a4b866caf4a5bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
 --- !u!4 &1629707165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4655435559543078, guid: dbaaa241512f32046937bb91dda46e35,
@@ -17394,7 +17408,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tempEndLocation
       value: 
-      objectReference: {fileID: 1629077883}
+      objectReference: {fileID: 1629077882}
     - target: {fileID: 6548737632529396227, guid: 7a45aa8bf53aa75438c28aa6cdab3e19,
         type: 3}
       propertyPath: m_Name
