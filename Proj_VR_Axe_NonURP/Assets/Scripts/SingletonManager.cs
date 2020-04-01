@@ -13,7 +13,6 @@ public class SingletonManager<T> : MonoBehaviour where T : SingletonManager<T>
     //local variable instance (referencing itself)
     private static T _instance;
 
-
     public static T Instance
     {
         get

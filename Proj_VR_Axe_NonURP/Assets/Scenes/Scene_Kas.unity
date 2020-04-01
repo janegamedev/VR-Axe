@@ -204,27 +204,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 1697233916}
   m_HandleRect: {fileID: 1566513872}
   m_Direction: 0
-  m_MinValue: 0.0001
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 374052860}
         m_MethodName: PlaySound
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 150814180}
-        m_MethodName: SetLevel
-        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -242,10 +231,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 150814177}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0000d3f0ac39da049a15b51872ce2402, type: 3}
+  m_Script: {fileID: 11500000, guid: c31f880b94e74de4b82201cf663c6821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 24850be2d98399e4486e20656cb6350d, type: 2}
+  volume: {fileID: 0}
 --- !u!1 &203021983
 GameObject:
   m_ObjectHideFlags: 0
@@ -5509,6 +5498,75 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1001 &7677063694237869520
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3301385955703165891, guid: e3b681f5b1060494492b4df96016ac5e,
+        type: 3}
+      propertyPath: m_Name
+      value: Volume Control Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905903199157027659, guid: e3b681f5b1060494492b4df96016ac5e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.451749
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905903199157027659, guid: e3b681f5b1060494492b4df96016ac5e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5959735
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905903199157027659, guid: e3b681f5b1060494492b4df96016ac5e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.689303
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905903199157027659, guid: e3b681f5b1060494492b4df96016ac5e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905903199157027659, guid: e3b681f5b1060494492b4df96016ac5e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905903199157027659, guid: e3b681f5b1060494492b4df96016ac5e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905903199157027659, guid: e3b681f5b1060494492b4df96016ac5e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905903199157027659, guid: e3b681f5b1060494492b4df96016ac5e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905903199157027659, guid: e3b681f5b1060494492b4df96016ac5e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905903199157027659, guid: e3b681f5b1060494492b4df96016ac5e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905903199157027659, guid: e3b681f5b1060494492b4df96016ac5e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e3b681f5b1060494492b4df96016ac5e, type: 3}
 --- !u!33 &8182435717910105193
 MeshFilter:
   m_ObjectHideFlags: 0
