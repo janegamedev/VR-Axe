@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
 {
     public Transform spot;
-    public Events.EventEnemyDeath onEnemyDeath;
+    public Events.EventOnDeath onDeath;
     private NavMeshAgent agent;
 
     //TODO: Inject objective location through constructor
@@ -67,7 +67,7 @@ public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
     public void GetHit()
     {
         Destroy(gameObject);
-        onEnemyDeath?.Invoke(spot);
+        onDeath?.Invoke(spot);
     }
     
     private bool IsAtDestination()

@@ -3,5 +3,6 @@ using UnityEngine.Events;
 
 public class Events
 {
-    [System.Serializable] public class EventEnemyDeath : UnityEvent <Transform> { }
+    [System.Serializable] public class EventOnDeath : UnityEvent <Transform> { }
+    [System.Serializable] public class EventOnHit : UnityEvent <Transform> { }
 }

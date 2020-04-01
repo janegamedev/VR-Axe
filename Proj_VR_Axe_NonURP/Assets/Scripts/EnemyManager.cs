@@ -21,7 +21,7 @@ public class EnemyManager : MonoBehaviour
     {
         EnemyBehaviour enemy = Instantiate(enemyPrefab, spot.position, Quaternion.identity).GetComponent<EnemyBehaviour>();
         enemy.spot = spot;
-        enemy.onEnemyDeath.AddListener(OnEnemyDeath);
+        enemy.onDeath.AddListener(OnEnemyDeath);
     }
 
     private void OnEnemyDeath(Transform spot)

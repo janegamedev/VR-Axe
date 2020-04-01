@@ -5,6 +5,11 @@ using UnityEngine;
 public class PortalHealth : MonoBehaviour, IReceiveDamage
 {
     public int health = 5;
+    
+    //public Transform spot;
+    public Events.EventOnDeath portalDeath;
+    public Events.EventOnHit portalHit;
+
     public void GetHit()
     {
         health--;
@@ -12,6 +17,11 @@ public class PortalHealth : MonoBehaviour, IReceiveDamage
         if (health <= 0)
         {
             //Game Over
+            portalDeath?.Invoke(transform);
+        }
+        else
+        {
+            portalHit?.Invoke(transform);
         }
     }
 }
