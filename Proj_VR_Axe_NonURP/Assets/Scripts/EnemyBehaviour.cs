@@ -11,11 +11,21 @@ public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
     public Events.EventEnemyDeath onEnemyDeath;
     private NavMeshAgent agent;
 
+    //TODO: Inject objective location through constructor
     public GameObject tempEndLocation;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        SetAnimation();
+        tempEndLocation = GameObject.FindGameObjectWithTag("EnemyObjective");
+    }
+
+    private void SetAnimation()
+    {
+        Animator anim = GetComponent<Animator>();
+        anim.SetFloat("InputVertical", .5f);
+        anim.SetFloat("InputMagnitude", .5f);
     }
 
     private void Start()

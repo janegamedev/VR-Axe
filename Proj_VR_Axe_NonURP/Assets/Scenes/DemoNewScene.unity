@@ -5705,7 +5705,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tempEndLocation
       value: 
-      objectReference: {fileID: 1629077882}
+      objectReference: {fileID: 0}
     - target: {fileID: 6548737632529396227, guid: 7a45aa8bf53aa75438c28aa6cdab3e19,
         type: 3}
       propertyPath: m_Name
@@ -5784,7 +5784,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 1.5
+  m_Speed: 0.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -12042,7 +12042,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tempEndLocation
       value: 
-      objectReference: {fileID: 1629077882}
+      objectReference: {fileID: 0}
     - target: {fileID: 6548737632529396227, guid: 7a45aa8bf53aa75438c28aa6cdab3e19,
         type: 3}
       propertyPath: m_Name
@@ -12121,7 +12121,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 1.5
+  m_Speed: 0.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -15911,7 +15911,7 @@ GameObject:
   - component: {fileID: 1629077884}
   m_Layer: 0
   m_Name: AgentObjective
-  m_TagString: Untagged
+  m_TagString: EnemyObjective
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17408,7 +17408,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tempEndLocation
       value: 
-      objectReference: {fileID: 1629077882}
+      objectReference: {fileID: 0}
     - target: {fileID: 6548737632529396227, guid: 7a45aa8bf53aa75438c28aa6cdab3e19,
         type: 3}
       propertyPath: m_Name
@@ -17487,7 +17487,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 1.5
+  m_Speed: 0.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
