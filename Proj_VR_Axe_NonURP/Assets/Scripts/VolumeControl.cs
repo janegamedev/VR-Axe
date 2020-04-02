@@ -10,25 +10,20 @@ public class VolumeControl: SingletonManager<VolumeControl>
     public void SetLevel (float sliderValue)
     {
         mixer.SetFloat("MusicVol", Mathf.Log10(sliderValue) * 20);
-        //mixer.SetFloat("MusicVol", sliderValue);
     }
 
-    public float GetVolume()
+    public float volume
     {
-        float value;
-        bool result = mixer.GetFloat("MusicVol", out value);
-
-        if (result)
+        get
         {
-            Debug.Log(Mathf.Pow(10, value) * 20);
-            return Mathf.Pow(10, value) * 20;
-            
-        }
-
-        else
-        {
-            Debug.Log("Set to zero");
-            return 0f;
+            if (mixer.GetFloat("MusicVol", out float value))
+            {
+                return Mathf.Pow(10, value) * 20;
+            }
+            else
+            {
+                return -1f;
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ public class SliderAssigner : MonoBehaviour
     private void Awake()
     {
         volume = GetComponent<Slider>();
-        volume.value = VolumeControl.Instance.GetVolume();
+        volume.value = VolumeControl.Instance.volume;
         volume.onValueChanged.AddListener(OnValueChange);
     }
 

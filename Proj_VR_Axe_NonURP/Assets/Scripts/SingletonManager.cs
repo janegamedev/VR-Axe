@@ -20,12 +20,11 @@ public class SingletonManager<T> : MonoBehaviour where T : SingletonManager<T>
 
             if (_instance == null)
             {
-                Debug.Log("CAN YOU FIND THE INSTANCE OF THIS OBJECT");
                 _instance = GameObject.FindObjectOfType<T>();
                 if (_instance == null)
                 {
-                    Debug.Log("Create new object instance");
-                    GameObject go = new GameObject("[Singleton] ? Manager");
+                    string typeName = typeof(T).ToString();
+                    GameObject go = new GameObject("[Singleton] " + typeName + " Manager");
                     _instance = go.AddComponent<T>();
 
                 }
