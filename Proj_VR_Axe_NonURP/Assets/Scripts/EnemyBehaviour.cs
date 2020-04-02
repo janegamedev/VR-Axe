@@ -1,24 +1,20 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using Random = UnityEngine.Random;
 
 public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
 {
-    public Transform spot;
+    public Transform destination;
     public Events.EventOnDeath onDeath;
     private NavMeshAgent agent;
 
     //TODO: Inject objective location through constructor
-    public GameObject tempEndLocation;
+    
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         SetAnimation();
-        tempEndLocation = GameObject.FindGameObjectWithTag("EnemyObjective");
     }
 
     private void SetAnimation()
@@ -28,24 +24,18 @@ public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
         anim.SetFloat("InputMagnitude", .5f);
     }
 
-    private void Start()
+    public void SetDestination(Transform spot)
     {
-        Init(tempEndLocation.transform.position);
-    }
-
-    public void Init(Vector3 position)
-    {
+        destination = spot;
         if (agent.enabled)
         {
             if (agent.isOnNavMesh)
             {                
-                Debug.Log("Setting destination");
-                agent.SetDestination(position);
+                agent.SetDestination(destination.position);
             }
             else
             {
-                Debug.Log("Boop");
-                //agent.SetDestination(position);
+                Debug.LogWarning("Agent is not on nav mesh");
             }
         }
     }
@@ -60,19 +50,19 @@ public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
 
     public void DoDamage()
     {
-        tempEndLocation.GetComponent<IReceiveDamage>().GetHit();
+        destination.gameObject.GetComponent<IReceiveDamage>().GetHit();
         Destroy(gameObject);
     }
 
     public void GetHit()
     {
+        //onDeath?.Invoke(destination);
         Destroy(gameObject);
-        onDeath?.Invoke(spot);
     }
     
     private bool IsAtDestination()
     {
-        if (Vector3.Distance(transform.position, tempEndLocation.transform.position) < Random.Range(1, 3))
+        if (Vector3.Distance(transform.position, destination.transform.position) < UnityEngine.Random.Range(1, 3))
             return true;
         else
         {

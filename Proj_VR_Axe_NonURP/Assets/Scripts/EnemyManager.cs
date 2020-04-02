@@ -1,38 +1,39 @@
-﻿using System;
+﻿
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public Transform[] spawnPositions;
+    public Transform[] spawnPoints;
     public float timeForRespawn;
+    public Transform gate;
 
     private void Start()
     {
-        foreach (var spawn in spawnPositions)
+        StartCoroutine(RespawnEnemy());
+    }
+
+    private IEnumerator RespawnEnemy()
+    {
+        while(true)
         {
-            SpawnEnemy(spawn);
+            if (gate.GetComponent<PortalHealth>().health < 0)
+            {
+                yield break;
+            }
+
+            yield return new WaitForSeconds(timeForRespawn);
+        
+            Transform spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
+
+            SpawnEnemy(spawnPoint);
         }
     }
 
-    private void SpawnEnemy(Transform spot)
+    private void SpawnEnemy(Transform point)
     {
-        EnemyBehaviour enemy = Instantiate(enemyPrefab, spot.position, Quaternion.identity).GetComponent<EnemyBehaviour>();
-        enemy.spot = spot;
-        enemy.onDeath.AddListener(OnEnemyDeath);
-    }
-
-    private void OnEnemyDeath(Transform spot)
-    {
-        StartCoroutine(RespawnEnemy(spot));
-    }
-
-    private IEnumerator RespawnEnemy(Transform spot)
-    {
-        yield return new WaitForSeconds(timeForRespawn);
-        
-        SpawnEnemy(spot);
+        EnemyBehaviour enemy = Instantiate(enemyPrefab, point.position, point.rotation).GetComponent<EnemyBehaviour>();
+        enemy.SetDestination(gate);
     }
 }
