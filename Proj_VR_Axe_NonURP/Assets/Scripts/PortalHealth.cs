@@ -13,7 +13,7 @@ public class PortalHealth : MonoBehaviour, IReceiveDamage
     public void GetHit()
     {
         health--;
-        Debug.Log("Health remaining: " + health);
+        //Debug.Log("Health remaining: " + health);
         if (health <= 0)
         {
             //Game Over
