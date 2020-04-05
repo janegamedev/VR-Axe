@@ -27,6 +27,7 @@ public class WaveManager : MonoBehaviour
     {
         state = WaveManagerState.Beginning;
         StartCoroutine(Begin());
+        
     }
 
     private IEnumerator Begin()
@@ -57,6 +58,12 @@ public class WaveManager : MonoBehaviour
             enemy.SetDestination(gate);
             yield return new WaitForSeconds(spawnBreak + UnityEngine.Random.Range(-1f, 1f) * spawnBreakError);
         }
+    }
+
+    public void GateDied()
+    {
+        StopAllCoroutines();
+        state = WaveManagerState.Lost;
     }
 
     private static GameObject RandomFromRemaining(Dictionary<GameObject, int> dictOfRemaining)

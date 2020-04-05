@@ -6359,8 +6359,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7345295449384168115, guid: dc729c700bc87cd4e80f628f2879143c,
         type: 3}
+      propertyPath: portalDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345295449384168115, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
       propertyPath: health
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345295449384168115, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
+      propertyPath: portalDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345295449384168115, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
+      propertyPath: portalDeath.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345295449384168115, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
+      propertyPath: portalDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 813401015}
+    - target: {fileID: 7345295449384168115, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
+      propertyPath: portalDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GateDied
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345295449384168115, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
+      propertyPath: portalDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc729c700bc87cd4e80f628f2879143c, type: 3}
@@ -8292,7 +8322,10 @@ MonoBehaviour:
   waves:
   - {fileID: 11400000, guid: 6aec65bf0783d0d4e8e7c631aba26105, type: 2}
   - {fileID: 11400000, guid: 9ae8c54287a6abf45af13f376c87c2d9, type: 2}
-  waveBreak: 10
+  - {fileID: 11400000, guid: 9ae8c54287a6abf45af13f376c87c2d9, type: 2}
+  - {fileID: 11400000, guid: 9ae8c54287a6abf45af13f376c87c2d9, type: 2}
+  - {fileID: 11400000, guid: 9ae8c54287a6abf45af13f376c87c2d9, type: 2}
+  waveBreak: 15
   spawnBreak: 3
   spawnBreakError: 1
   gate: {fileID: 563468720}
