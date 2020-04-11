@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 6548737632529396228}
   - component: {fileID: 6548737632529396225}
   - component: {fileID: 6548737632529396224}
+  - component: {fileID: 4653744051564966422}
   - component: {fileID: 3924177907727473545}
   - component: {fileID: 9038916896177490080}
   m_Layer: 0
@@ -464,6 +465,20 @@ CapsuleCollider:
   m_Height: 1.9
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &4653744051564966422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548737632529396227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f797924d3f4e64291f9b60944fec79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 2040159882317048263, guid: 764f31bacb2ca0a4498f1e448038997c,
+    type: 3}
 --- !u!114 &3924177907727473545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,11 +491,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4977bdd54f642d42bf3a5e4c0465cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spot: {fileID: 0}
+  destination: {fileID: 0}
   onDeath:
     m_PersistentCalls:
       m_Calls: []
-  tempEndLocation: {fileID: 0}
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4653744051564966422}
+        m_MethodName: SpawnParticles
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!195 &9038916896177490080
 NavMeshAgent:
   m_ObjectHideFlags: 0

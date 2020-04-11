@@ -6,6 +6,7 @@ public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
 {
     public Transform destination;
     public Events.EventOnDeath onDeath;
+    public Events.EventOnHit onHit;
     private NavMeshAgent agent;
 
     //TODO: Inject objective location through constructor
@@ -57,6 +58,7 @@ public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
     public void GetHit()
     {
         //onDeath?.Invoke(destination);
+        onHit?.Invoke(destination);
         Destroy(gameObject);
     }
     
