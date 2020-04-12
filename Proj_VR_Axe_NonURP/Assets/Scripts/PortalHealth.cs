@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PortalHealth : MonoBehaviour, IReceiveDamage
 {
-    public int health = 5;
+    public int health;
     
     //public Transform spot;
     public Events.EventOnDeath portalDeath;

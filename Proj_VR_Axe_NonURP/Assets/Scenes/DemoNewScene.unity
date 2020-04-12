@@ -6365,7 +6365,7 @@ PrefabInstance:
     - target: {fileID: 7345295449384168115, guid: dc729c700bc87cd4e80f628f2879143c,
         type: 3}
       propertyPath: health
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7345295449384168115, guid: dc729c700bc87cd4e80f628f2879143c,
         type: 3}
@@ -6392,14 +6392,53 @@ PrefabInstance:
       propertyPath: portalDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8044044512545368353, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
+      propertyPath: portalDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044044512545368353, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
+      propertyPath: portalDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044044512545368353, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
+      propertyPath: portalDeath.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044044512545368353, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
+      propertyPath: portalDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 813401015}
+    - target: {fileID: 8044044512545368353, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
+      propertyPath: portalDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GateDied
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044044512545368353, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
+      propertyPath: portalDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8268393842377239932, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.679
+      objectReference: {fileID: 0}
+    - target: {fileID: 8268393842377239932, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.552
+      objectReference: {fileID: 0}
+    - target: {fileID: 8268393842377239932, guid: dc729c700bc87cd4e80f628f2879143c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.875
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc729c700bc87cd4e80f628f2879143c, type: 3}
---- !u!4 &563468720 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3926760470723269629, guid: dc729c700bc87cd4e80f628f2879143c,
-    type: 3}
-  m_PrefabInstance: {fileID: 563468719}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &568133957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7438756058629188858, guid: 71f5b4e3dac759e429d26ebd6ce628d5,
@@ -6865,6 +6904,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4315393678549586, guid: 574c74109dc777043991cbb829ca8e73, type: 3}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23906924156203562, guid: 574c74109dc777043991cbb829ca8e73,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8283,7 +8327,7 @@ GameObject:
   - component: {fileID: 813401014}
   - component: {fileID: 813401015}
   m_Layer: 0
-  m_Name: EnemyManager
+  m_Name: WaveGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8323,12 +8367,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6aec65bf0783d0d4e8e7c631aba26105, type: 2}
   - {fileID: 11400000, guid: 9ae8c54287a6abf45af13f376c87c2d9, type: 2}
   - {fileID: 11400000, guid: 9ae8c54287a6abf45af13f376c87c2d9, type: 2}
-  - {fileID: 11400000, guid: 9ae8c54287a6abf45af13f376c87c2d9, type: 2}
-  - {fileID: 11400000, guid: 9ae8c54287a6abf45af13f376c87c2d9, type: 2}
-  waveBreak: 15
-  spawnBreak: 3
-  spawnBreakError: 1
-  gate: {fileID: 563468720}
+  enemiesAlive: 0
 --- !u!4 &835016998 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4088760742585306, guid: 1c29b103ca7f70e44b1a0d7c4e90400b,

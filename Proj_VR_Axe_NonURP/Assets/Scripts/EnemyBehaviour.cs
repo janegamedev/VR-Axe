@@ -4,16 +4,17 @@ using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
 {
-    public Transform destination;
     public Events.EventOnDeath onDeath;
     public Events.EventOnHit onHit;
     private NavMeshAgent agent;
+    private Transform destination;
 
     //TODO: Inject objective location through constructor
     
 
     private void Awake()
     {
+        destination = FindObjectOfType<PortalHealth>().transform;
         agent = GetComponent<NavMeshAgent>();
         SetAnimation();
     }

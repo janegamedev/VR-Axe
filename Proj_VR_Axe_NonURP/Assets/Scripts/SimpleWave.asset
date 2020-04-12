@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7bb07dfba6483b48a32e94da11e6fb0, type: 3}
   m_Name: SimpleWave
   m_EditorClassIdentifier: 
-  enemyTypes:
-  - {fileID: 6548737632529396227, guid: 7a45aa8bf53aa75438c28aa6cdab3e19, type: 3}
-  enemyCounts: 03000000
+  enemySettings:
+  - enemyType: {fileID: 6548737632529396227, guid: 7a45aa8bf53aa75438c28aa6cdab3e19,
+      type: 3}
+    enemyCount: 5
+  respawnDelay: 2
+  waveDelay: 5
