@@ -15,6 +15,6 @@ MonoBehaviour:
   enemySettings:
   - enemyType: {fileID: 6548737632529396227, guid: 7a45aa8bf53aa75438c28aa6cdab3e19,
       type: 3}
-    enemyCount: 5
+    enemyCount: 7
   respawnDelay: 2
-  waveDelay: 5
+  waveDelay: 2

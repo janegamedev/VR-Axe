@@ -7,14 +7,13 @@ public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
     public Events.EventOnDeath onDeath;
     public Events.EventOnHit onHit;
     private NavMeshAgent agent;
-    private Transform destination;
+    public Transform destination;
 
     //TODO: Inject objective location through constructor
     
 
     private void Awake()
     {
-        destination = FindObjectOfType<PortalHealth>().transform;
         agent = GetComponent<NavMeshAgent>();
         SetAnimation();
     }
@@ -22,6 +21,7 @@ public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
     private void SetAnimation()
     {
         Animator anim = GetComponent<Animator>();
+        anim.speed = 0.65f;
         anim.SetFloat("InputVertical", .5f);
         anim.SetFloat("InputMagnitude", .5f);
     }
@@ -29,17 +29,7 @@ public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
     public void SetDestination(Transform spot)
     {
         destination = spot;
-        if (agent.enabled)
-        {
-            if (agent.isOnNavMesh)
-            {                
-                agent.SetDestination(destination.position);
-            }
-            else
-            {
-                Debug.LogWarning("Agent is not on nav mesh");
-            }
-        }
+        agent.SetDestination(spot.position);
     }
 
     private void Update()
@@ -58,7 +48,7 @@ public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
 
     public void GetHit()
     {
-        //onDeath?.Invoke(destination);
+        onDeath?.Invoke(transform);
         onHit?.Invoke(destination);
         Destroy(gameObject);
     }

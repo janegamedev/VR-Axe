@@ -8,8 +8,8 @@ public class WaveGenerator : MonoBehaviour
 {
     public Transform[] spawnPoints;
     public List<WaveSO> waves;
-
-    public int enemiesAlive;
+    public Transform gate;
+    private int enemiesAlive;
 
     private void Start()
     {
@@ -35,6 +35,7 @@ public class WaveGenerator : MonoBehaviour
                 yield return new WaitForSeconds(wave.respawnDelay);
                 Transform spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
                 EnemyBehaviour enemy = Instantiate(es.enemyType, spawnPoint.position, spawnPoint.rotation).GetComponent<EnemyBehaviour>();
+                enemy.SetDestination(gate);
                 enemy.onDeath.AddListener(EnemyDied);
                 enemiesAlive++;
             }

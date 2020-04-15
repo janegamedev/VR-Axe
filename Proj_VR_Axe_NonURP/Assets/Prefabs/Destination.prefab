@@ -159,6 +159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3926760470723269629}
+  - component: {fileID: 8706485687085887842}
   m_Layer: 0
   m_Name: Destination
   m_TagString: Untagged
@@ -178,54 +179,22 @@ Transform:
   m_LocalScale: {x: 0.375, y: 0.375, z: 0.375}
   m_Children:
   - {fileID: 4744428095798154755}
-  - {fileID: 8268393842377239932}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -125.869995, y: 0, z: -90}
---- !u!1 &7167877054767261905
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8268393842377239932}
-  - component: {fileID: 8044044512545368353}
-  m_Layer: 0
-  m_Name: PortalHealth
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8268393842377239932
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7167877054767261905}
-  m_LocalRotation: {x: 0.62967217, y: 0.62967217, z: 0.3217344, w: 0.3217344}
-  m_LocalPosition: {x: -0.28589302, y: -1.7066674, z: -1.2675886}
-  m_LocalScale: {x: 2.666666, y: 2.666666, z: 2.6666656}
-  m_Children: []
-  m_Father: {fileID: 3926760470723269629}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8044044512545368353
+--- !u!114 &8706485687085887842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7167877054767261905}
+  m_GameObject: {fileID: 6916395019147402936}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5adc321085d5e23439a4b866caf4a5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 10
   portalDeath:
     m_PersistentCalls:
       m_Calls:
