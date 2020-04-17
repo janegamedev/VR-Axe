@@ -34,6 +34,7 @@ public class WaveGenerator : MonoBehaviour
             {
                 yield return new WaitForSeconds(wave.respawnDelay);
                 Transform spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
+                spawnPoint.GetComponent<EnemyParticleSpawn>().SpawnParticles();
                 EnemyBehaviour enemy = Instantiate(es.enemyType, spawnPoint.position, spawnPoint.rotation).GetComponent<EnemyBehaviour>();
                 enemy.SetDestination(gate);
                 enemy.onDeath.AddListener(EnemyDied);
