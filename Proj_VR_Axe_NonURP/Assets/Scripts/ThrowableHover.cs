@@ -83,6 +83,7 @@ public class ThrowableHover : MonoBehaviour
         ThrowableManager.Instance.spawnPositions[currentHoverPoint] = null;
     }
 
+    [ContextMenu("Boop")]
     public void UpdateDictionary()
     {
         ThrowableManager.Instance.SpawnBack(gameObject);
