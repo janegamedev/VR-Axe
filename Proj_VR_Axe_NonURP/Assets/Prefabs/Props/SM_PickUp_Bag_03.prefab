@@ -291,11 +291,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f1a787fbb4acda4eae59fc944476fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isHovering: 0
+  _isHovering: 1
   currentHoverPoint: {fileID: 0}
   amplitude: 0.5
   frequency: 1
   _rigidbody: {fileID: 0}
+  resetTimer: 0
+  maxResetTime: 30
 --- !u!65 &5895042508346510731
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -11,6 +11,11 @@ public class ThrowableHover : MonoBehaviour
     [SerializeField] private float amplitude = .5f;
     [SerializeField] private float frequency = 1f;
     [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private float resetTimer;
+    [SerializeField] private float maxResetTime;
+
+    public Rigidbody Rigidbody => _rigidbody;
+
 
     public bool IsHovering
     {
@@ -34,6 +39,7 @@ public class ThrowableHover : MonoBehaviour
     public void OnStatusChange()
     {
         _rigidbody.useGravity = !_isHovering;
+        resetTimer = 0;
         //_rigidbody.isKinematic = _isHovering;
     }
 
@@ -41,6 +47,11 @@ public class ThrowableHover : MonoBehaviour
     {
         if (!_isHovering)
         {
+            resetTimer += Time.deltaTime;
+            if (resetTimer >= maxResetTime)
+            {
+                ResetObject();
+            }
             return;
         }
         transform.localPosition = currentHoverPoint.position + Vector3.up * Mathf.Pow(Mathf.Sin(Time.time * frequency) * amplitude ,2);
@@ -48,7 +59,11 @@ public class ThrowableHover : MonoBehaviour
     
     public void ClearDictionary()
     {
-        ThrowableManager.Instance.spawnPositions[currentHoverPoint] = null;
+        if (currentHoverPoint != null)
+        {
+            ThrowableManager.Instance.spawnPositions[currentHoverPoint] = null;
+            currentHoverPoint = null;
+        }
     }
 
     [ContextMenu("Boop")]
@@ -56,5 +71,6 @@ public class ThrowableHover : MonoBehaviour
     {
         ThrowableManager.Instance.SpawnBack(gameObject);
         _rigidbody.isKinematic = true;
+        resetTimer = 0;
     }
 }

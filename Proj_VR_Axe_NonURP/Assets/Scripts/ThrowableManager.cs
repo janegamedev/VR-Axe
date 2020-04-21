@@ -38,13 +38,14 @@ public class ThrowableManager : SingletonManager<ThrowableManager>
     public void SpawnBack(GameObject go)
     {
         Transform temp = FindEmptyPosition();
+        ThrowableHover hoverScript = go.GetComponent<ThrowableHover>();
+        spawnPositions[temp] = hoverScript;
+        hoverScript.currentHoverPoint = temp;
         GameObject particle = Instantiate(spawnParticle, temp.position, Quaternion.identity);
         go.SetActive(false);
         go.transform.position = temp.position;
-        go.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        go.GetComponent<ThrowableHover>().IsHovering = true;
-        spawnPositions[temp] = go.GetComponent<ThrowableHover>();
-        go.GetComponent<ThrowableHover>().currentHoverPoint = temp;
+        hoverScript.Rigidbody.velocity = Vector3.zero;
+        hoverScript.IsHovering = true;
         StartCoroutine(ToggleObject(go));
         Destroy(particle, 2f);
     }

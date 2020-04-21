@@ -298,6 +298,8 @@ MonoBehaviour:
   amplitude: 0.5
   frequency: 1
   _rigidbody: {fileID: 0}
+  resetTimer: 0
+  maxResetTime: 30
 --- !u!65 &4113929221825107675
 BoxCollider:
   m_ObjectHideFlags: 0
