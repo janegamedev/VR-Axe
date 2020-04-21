@@ -39,11 +39,20 @@ public class ThrowableManager : SingletonManager<ThrowableManager>
     {
         Transform temp = FindEmptyPosition();
         GameObject particle = Instantiate(spawnParticle, temp.position, Quaternion.identity);
+        go.SetActive(false);
         go.transform.position = temp.position;
         go.GetComponent<Rigidbody>().velocity = Vector3.zero;
         go.GetComponent<ThrowableHover>().IsHovering = true;
         spawnPositions[temp] = go.GetComponent<ThrowableHover>();
         go.GetComponent<ThrowableHover>().currentHoverPoint = temp;
+        StartCoroutine(ToggleObject(go));
+        Destroy(particle, 2f);
+    }
+
+    public IEnumerator ToggleObject(GameObject go)
+    {
+        yield return new WaitForSeconds(.6f);
+        go.SetActive(true);
     }
 
     public Transform FindEmptyPosition()
