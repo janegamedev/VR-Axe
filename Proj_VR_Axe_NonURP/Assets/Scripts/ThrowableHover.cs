@@ -43,7 +43,7 @@ public class ThrowableHover : MonoBehaviour
         {
             return;
         }
-        transform.localPosition = currentHoverPoint.position + Vector3.up * (Mathf.Sin(Time.time * frequency) * amplitude);
+        transform.localPosition = currentHoverPoint.position + Vector3.up * Mathf.Pow(Mathf.Sin(Time.time * frequency) * amplitude ,2);
     }
     
     public void ClearDictionary()
