@@ -28,6 +28,10 @@ public class WaveGenerator : MonoBehaviour
             yield return StartCoroutine(WaitForSeconds(waves[i].waveDelay));
             yield return StartCoroutine(SpawnWave(waves[i]));
         }
+        
+        waveDisplayerManager.UpdateHealthText("You Won!");
+        waveDisplayerManager.UpdateWaveText("All Enemies eliminated!");
+        gate.GetComponent<PortalHealth>().gameWon?.Invoke();
     }
 
     public IEnumerator WaitForSeconds(float seconds)

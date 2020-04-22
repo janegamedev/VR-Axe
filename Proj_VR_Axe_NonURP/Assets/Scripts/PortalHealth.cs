@@ -8,6 +8,7 @@ public class PortalHealth : MonoBehaviour, IReceiveDamage
 
     public Events.EventOnDeath portalDeath;
     public Events.EventOnHit portalHit;
+    public Events.EventGameWon gameWon;
 
     public Displayer waveDisplayerManager;
 
