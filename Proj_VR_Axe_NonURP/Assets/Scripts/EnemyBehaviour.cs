@@ -43,7 +43,7 @@ public class EnemyBehaviour : MonoBehaviour, IReceiveDamage
     public void DoDamage()
     {
         destination.gameObject.GetComponent<IReceiveDamage>().GetHit();
-        Destroy(gameObject);
+        GetHit();
     }
 
     public void GetHit()

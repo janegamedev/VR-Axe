@@ -10,19 +10,22 @@ public class WaveGenerator : MonoBehaviour
     public List<WaveSO> waves;
     public Transform gate;
     private int enemiesAlive;
+    public WaveDisplayerManager waveDisplayerManager;
 
     private void Start()
     {
+        waveDisplayerManager = FindObjectOfType<WaveDisplayerManager>();
         StartCoroutine(SpawnWaves());
     }
 
     private IEnumerator SpawnWaves()
     {
-        foreach (WaveSO wave in waves)
+        for (int i = 0; i < waves.Count; i++)
         {
             yield return new WaitUntil(() => enemiesAlive == 0);
-            yield return new WaitForSeconds(wave.waveDelay);
-            StartCoroutine(SpawnWave(wave));
+            waveDisplayerManager.UpdateDisplayText("Wave: " + (i + 1));
+            yield return new WaitForSeconds(waves[i].waveDelay);
+            yield return StartCoroutine(SpawnWave(waves[i]));
         }
     }
 
@@ -39,6 +42,7 @@ public class WaveGenerator : MonoBehaviour
                 enemy.SetDestination(gate);
                 enemy.onDeath.AddListener(EnemyDied);
                 enemiesAlive++;
+                waveDisplayerManager.UpdateDisplayText("Remaining enemies: " + enemiesAlive);
             }
         }
 
@@ -52,6 +56,7 @@ public class WaveGenerator : MonoBehaviour
     public void EnemyDied(Transform pos)
     {
         enemiesAlive--;
+        waveDisplayerManager.UpdateDisplayText("Remaining enemies: " + enemiesAlive);
     }
 
 
