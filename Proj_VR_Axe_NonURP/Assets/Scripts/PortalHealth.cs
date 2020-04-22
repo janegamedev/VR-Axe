@@ -5,22 +5,28 @@ using UnityEngine;
 public class PortalHealth : MonoBehaviour, IReceiveDamage
 {
     public int health;
-    
-    //public Transform spot;
+
     public Events.EventOnDeath portalDeath;
     public Events.EventOnHit portalHit;
+
+    public Displayer waveDisplayerManager;
+
+    public void Start()
+    {
+        waveDisplayerManager.UpdateHealthText("Health remaining: " + health);
+    }
 
     public void GetHit()
     {
         health--;
-        //Debug.Log("Health remaining: " + health);
         if (health <= 0)
         {
-            //Game Over
+            waveDisplayerManager.UpdateHealthText("CRITICAL FALIURE!");
             portalDeath?.Invoke(transform);
         }
         else
         {
+            waveDisplayerManager.UpdateHealthText("Health remaining: " + health);
             portalHit?.Invoke(transform);
         }
     }

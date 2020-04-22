@@ -10,11 +10,12 @@ public class WaveGenerator : MonoBehaviour
     public List<WaveSO> waves;
     public Transform gate;
     private int enemiesAlive;
-    public WaveDisplayerManager waveDisplayerManager;
+    private Displayer waveDisplayerManager;
+    private int enemiesInCurrentWave;
 
     private void Start()
     {
-        waveDisplayerManager = FindObjectOfType<WaveDisplayerManager>();
+        waveDisplayerManager = FindObjectOfType<Displayer>();
         StartCoroutine(SpawnWaves());
     }
 
@@ -23,14 +24,27 @@ public class WaveGenerator : MonoBehaviour
         for (int i = 0; i < waves.Count; i++)
         {
             yield return new WaitUntil(() => enemiesAlive == 0);
-            waveDisplayerManager.UpdateDisplayText("Wave: " + (i + 1));
-            yield return new WaitForSeconds(waves[i].waveDelay);
+            waveDisplayerManager.UpdateWaveText("Wave: " + (i + 1) + "/" + waves.Count);
+            yield return StartCoroutine(WaitForSeconds(waves[i].waveDelay));
             yield return StartCoroutine(SpawnWave(waves[i]));
         }
     }
 
+    public IEnumerator WaitForSeconds(float seconds)
+    {
+        for (int i = 0; i < seconds; i++)
+        {
+            waveDisplayerManager.UpdateWaveText((seconds - i).ToString());
+            yield return new WaitForSeconds(1f);
+        } 
+    }
+
     private IEnumerator SpawnWave(WaveSO wave)
     {
+        enemiesInCurrentWave = 0;
+        wave.enemySettings.ForEach(es => enemiesInCurrentWave = enemiesInCurrentWave + es.enemyCount);
+        waveDisplayerManager.UpdateWaveText("Remaining enemies: " + enemiesInCurrentWave + "/" + enemiesInCurrentWave);
+
         foreach (EnemySettings es in wave.enemySettings)
         {
             for (int i = 0; i < es.enemyCount; i++)
@@ -42,10 +56,8 @@ public class WaveGenerator : MonoBehaviour
                 enemy.SetDestination(gate);
                 enemy.onDeath.AddListener(EnemyDied);
                 enemiesAlive++;
-                waveDisplayerManager.UpdateDisplayText("Remaining enemies: " + enemiesAlive);
             }
         }
-
     }
 
     public void GateDied()
@@ -56,7 +68,7 @@ public class WaveGenerator : MonoBehaviour
     public void EnemyDied(Transform pos)
     {
         enemiesAlive--;
-        waveDisplayerManager.UpdateDisplayText("Remaining enemies: " + enemiesAlive);
+        waveDisplayerManager.UpdateWaveText("Remaining enemies: " + enemiesAlive + "/" + enemiesInCurrentWave);
     }
 
 
