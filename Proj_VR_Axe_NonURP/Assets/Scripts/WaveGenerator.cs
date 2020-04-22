@@ -29,6 +29,7 @@ public class WaveGenerator : MonoBehaviour
             yield return StartCoroutine(SpawnWave(waves[i]));
         }
         
+        yield return new WaitUntil(() => enemiesAlive == 0);
         waveDisplayerManager.UpdateHealthText("You Won!");
         waveDisplayerManager.UpdateWaveText("All Enemies eliminated!");
         gate.GetComponent<PortalHealth>().gameWon?.Invoke();
@@ -67,6 +68,7 @@ public class WaveGenerator : MonoBehaviour
     public void GateDied()
     {
         StopAllCoroutines();
+        FindObjectsOfType<EnemyBehaviour>().ToList().ForEach(x => x.GetHit());
     }
 
     public void EnemyDied(Transform pos)
