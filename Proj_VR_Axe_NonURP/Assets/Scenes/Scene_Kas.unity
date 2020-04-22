@@ -945,7 +945,7 @@ GameObject:
   - component: {fileID: 522804560}
   - component: {fileID: 522804559}
   m_Layer: 0
-  m_Name: SceneManaging-TestingScene
+  m_Name: SceneManaging-DemoScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -963,7 +963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea75939e7b0fbd44b286c26b9e859bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: SceneTestLevel
+  sceneName: DemoNewScene
 --- !u!4 &522804560
 Transform:
   m_ObjectHideFlags: 0
